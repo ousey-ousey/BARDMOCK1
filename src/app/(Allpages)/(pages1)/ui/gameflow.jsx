@@ -112,47 +112,47 @@ export default function CustomBoardFlow() {
         spaceBetween={50}
         slidesPerView={1}
         allowTouchMove={false}
-        className="w-full pt-20 md:pt-24"
+        className="w-full pt-20 md:pt-52"
       >
         <SwiperSlide>
           <div className="max-w-[40rem] mx-auto px-4 mt-20">
-          {/* Header */}
+            {/* Header */}
             <h2 className="text-xl md:text-3xl font-bold text-center mb-4">
-            Create your own custom game board!
-          </h2>
+              Create your own custom game board!
+            </h2>
 
-          {/* image */}
+            {/* image */}
             <div className="text-center mb-8 sm:mb-4">
               <img src="/image4.png" alt="games" className="max-w-full" />
-          </div>
+            </div>
 
             {/* Input Field with fixed Start button */}
             <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-300 md:p-2 p-0 m-0 mx-[-1rem] max-w-[50rem] md:mx-auto mb-6">
               <span className="w-8 h-8 flex-shrink-0">
-              <img
-                src="/input1.png"
-                alt="ai"
+                <img
+                  src="/input1.png"
+                  alt="ai"
                   className="w-full h-full object-contain"
-              />
-            </span>
-            <input
-              id="input1"
-              type="text"
-              placeholder="Name your board..."
+                />
+              </span>
+              <input
+                id="input1"
+                type="text"
+                placeholder="Name your board..."
                 className="flex-1 border-none outline-none text-sm p-0 bg-transparent"
               />
 
               {/* Button - With star icon and proper sizing */}
-            <button
+              <button
                 className="bg-black text-white flex-shrink-0 h-9 px-3 flex items-center gap-1.5 border-none cursor-pointer rounded-lg text-sm font-medium"
-              onClick={goToNext}
-            >
+                onClick={goToNext}
+              >
                 {/* Always show the star icon */}
                 <img src="/input2.png" alt="stars" className="w-4 h-4" />
                 <span className="hidden sm:inline">Start Now</span>
                 <span className="sm:hidden">Start</span>
                 <MdArrowForwardIos className="text-xs" />
-            </button>
+              </button>
             </div>
           </div>
         </SwiperSlide>
@@ -394,8 +394,8 @@ export default function CustomBoardFlow() {
                 <label className="text-sm text-gray-700 mb-1">
                   Destination name
                 </label>
-            <input
-              type="text"
+                <input
+                  type="text"
                   placeholder="name your Destination..."
                   className="p-3.5 border border-gray-300 rounded-md"
                 />

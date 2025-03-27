@@ -30,7 +30,7 @@ export default function Services() {
     return null; // Return nothing if on login or signup page
   }
   return (
-    <section className="py-16 pt-20 bg-gray-50 text-center">
+    <section className="py-16 pt-32 bg-gray-50 text-center">
       <h2 className="text-2xl md:text-[3rem] font-bold mb-12 flex items-center justify-center gap-3">
         <span className="w-12 h-1 bg-black" />
         Our Service
