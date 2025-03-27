@@ -8,14 +8,14 @@ function Signin() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="bg-white h-screen w-screen flex justify-center items-center relative overflow-hidden">
+    <div className="bg-white min-h-screen w-full flex flex-col justify-center items-center relative overflow-hidden px-4">
       {/* Left diagonal line - placed with z-index below form */}
       <div
         className="absolute bg-black z-0"
         style={{
           width: "200%",
           height: ".5rem",
-          left: "-61%",
+          left: "-75%",
           top: "65%",
           transform: "rotate(10deg)",
         }}

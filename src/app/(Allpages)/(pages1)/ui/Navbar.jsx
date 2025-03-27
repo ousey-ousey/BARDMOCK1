@@ -18,9 +18,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`flex justify-between items-center px-16 py-4 ${
+      className={`flex justify-between items-center px-4 sm:px-8 md:px-16 py-4 ${
         isAuthPage ? "bg-white" : "bg-gray-50"
-      }  relative`}
+      } relative z-10`}
     >
       {/* Logo */}
       <div
@@ -47,7 +47,10 @@ export default function Navbar() {
             <FiSun />
           </button>
           <button
-            onClick={() => setOpen(!open)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpen(!open);
+            }}
             className="p-2 border rounded-md"
           >
             <FiMenu />
@@ -55,7 +58,12 @@ export default function Navbar() {
 
           {/* Login button on desktop */}
           <button
-            onClick={() => router.push("/login")}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log("Navigating to login");
+              router.push("/login");
+            }}
             className={`hidden md:block ${loginButtonClasses}`}
           >
             Login
@@ -63,7 +71,7 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Pop-up menu */}
+      {/* Pop-up menu - with higher z-index and better positioning */}
       {!isAuthPage && (
         <AnimatePresence>
           {open && (
@@ -71,16 +79,22 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="absolute right-24 top-16 bg-gray-100 rounded-md shadow-md overflow-hidden"
+              className="absolute right-4 md:right-24 top-16 bg-gray-100 rounded-md shadow-lg overflow-hidden z-50"
+              style={{ maxWidth: "90vw" }}
             >
               <div className="divide-y divide-gray-300">
                 <div className="p-3 hover:bg-white cursor-pointer">Order</div>
                 <div className="p-3 hover:bg-white cursor-pointer">Press</div>
                 <div className="p-3 hover:bg-white cursor-pointer">Support</div>
 
-                {/* Mobile Login Button */}
+                {/* Mobile Login Button - with improved event handling */}
                 <button
-                  onClick={() => router.push("/login")}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    router.push("/login");
+                    setOpen(false); // Close menu after clicking
+                  }}
                   className={`md:hidden block p-3 w-full ${loginButtonClasses}`}
                 >
                   Login

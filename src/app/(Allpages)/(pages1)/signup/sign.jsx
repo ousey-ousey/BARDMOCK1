@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 function Signupo() {
   const [email, setEmail] = useState("");
@@ -7,32 +9,32 @@ function Signupo() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   return (
-    <div className="bg-white h-screen w-screen flex justify-center items-center relative overflow-hidden">
-      {/* Left diagonal line - placed with z-index below form */}
+    <div className="bg-white min-h-screen w-full flex flex-col justify-center items-center relative overflow-hidden px-4">
+      {/* Diagonal lines */}
       <div
         className="absolute bg-black z-0"
         style={{
           width: "200%",
           height: ".5rem",
-          left: "-61%",
+          left: "-75%",
           top: "65%",
           transform: "rotate(10deg)",
         }}
       />
 
-      {/* Form container with white background and higher z-index */}
+      {/* Form container */}
       <div
-        className=" bg-white relative z-10 w-full max-w-md px-4 shadow-md p-2"
+        className="bg-white relative z-10 w-full max-w-md px-4 shadow-md p-2"
         style={{
-          borderX: "1px solid black",
+          borderX: "1px solid #e5e7eb",
           borderRadius: "0.375rem",
           padding: ".5rem 2rem",
         }}
       >
-        <div className="text-center mb-8">
-          <p className="text-gray-600 mb-2">Welcome 👋</p>
+        <div className="text-center mb-6">
+          <p className="text-gray-600 mb-1">Welcome back! 👋</p>
           <h1 className="text-2xl font-medium text-gray-800">
-            make your account
+            Sign in to your account
           </h1>
         </div>
 
@@ -76,7 +78,7 @@ function Signupo() {
 
           <button
             type="button"
-            className="w-full py-3 bg-black bg-gradient-to-br from-black to-slate-500 text-white text-sm font-medium"
+            className="w-full py-3 bg-black text-white text-sm font-medium"
           >
             SIGN UP
           </button>
@@ -84,10 +86,10 @@ function Signupo() {
 
         <div className="mt-6 text-center pt-6 border-t border-gray-200">
           <p className="text-sm text-gray-600">
-            Already have an account?
-            <a href="/login" className="text-blue-500 ml-1 hover:underline">
+            Already have an account?{" "}
+            <Link href="/login" className="text-blue-500 hover:underline">
               Sign in
-            </a>
+            </Link>
           </p>
         </div>
       </div>
