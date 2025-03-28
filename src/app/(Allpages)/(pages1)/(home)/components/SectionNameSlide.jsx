@@ -4,16 +4,21 @@ import React from "react";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 
 export const SectionNameSlide = ({ goToNext, goToPrev }) => (
-  <div className="flex flex-col items-center px-4 min-h-screen py-10">
-    <div className="flex-1 flex flex-col items-center justify-center w-full">
+  <div className="flex flex-col items-center px-4 ">
+    {/* Main content container */}
+    <div className="flex-1 flex flex-col w-full max-w-[40rem] mx-auto my-auto py-6">
       <h2 className="text-lg md:text-3xl font-bold text-center mb-4">
         Name your Section
       </h2>
-      <div className="max-w-[40rem] text-center mb-8 sm:mb-4">
-        <img src="/image4.png" alt="games" className="max-w-full" />
+      <div className="w-full text-center mb-6">
+        <img 
+          src="/image4.png" 
+          alt="games" 
+          className="w-full max-w-full h-auto object-contain"
+        />
       </div>
-      <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-300 md:p-2 p-0 w-4/5 max-w-[40rem] mx-auto mb-4">
-        <span className="w-8 h-8 flex-shrink-0">
+      <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-300 p-2 w-full mx-auto">
+        <span className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0">
           <img
             src="/input1.png"
             alt="ai"
@@ -28,7 +33,8 @@ export const SectionNameSlide = ({ goToNext, goToPrev }) => (
       </div>
     </div>
 
-    <div className="flex justify-center items-center gap-4 md:gap-8 mt-auto pb-6">
+    {/* Buttons container */}
+    <div className="flex justify-center items-center gap-4 w-full px-4 py-6">
       <button
         onClick={goToPrev}
         className="min-w-[100px] text-black px-3 py-2 flex items-center justify-center gap-1 cursor-pointer rounded-lg bg-transparent border border-black text-sm"

@@ -91,12 +91,12 @@ export default function CustomBoardFlow() {
         spaceBetween={50}
         slidesPerView={1}
         allowTouchMove={false}
-        className="w-full md:pt-52"
+        className="w-full  pt-0 md:mt-[15rem]"
         style={{ 
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          paddingTop: '10rem',
+          
         }}
       >
         {/* Slide 1 - Create Board */}

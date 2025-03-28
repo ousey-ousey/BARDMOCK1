@@ -4,7 +4,7 @@ import React from "react";
 import { MdArrowForwardIos } from "react-icons/md";
 
 export const CreateBoardSlide = ({ goToNext }) => (
-  <div className="max-w-[40rem] mx-auto px-4">
+  <div className="max-w-[40rem] mx-auto px-4 md:pt-10">
     <h2 className="text-lg md:text-3xl font-bold text-center mb-4">
       Create your own custom game board!
     </h2>
