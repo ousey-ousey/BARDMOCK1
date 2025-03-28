@@ -78,7 +78,7 @@ function Signupo() {
 
           <button
             type="button"
-            className="w-full py-3 bg-black text-white text-sm font-medium"
+            className="w-full py-3  bg-black bg-gradient-to-br from-black to-slate-500 text-white text-sm font-medium"
           >
             SIGN UP
           </button>

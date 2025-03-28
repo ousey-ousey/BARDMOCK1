@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MdArrowForwardIos, MdArrowBackIos, MdGpsFixed } from "react-icons/md";
 import "swiper/css";
+import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 
 export default function CustomBoardFlow() {
   const swiperRef = useRef(null);
@@ -144,7 +145,7 @@ export default function CustomBoardFlow() {
 
               {/* Button - With star icon and proper sizing */}
               <button
-                className="bg-black text-white flex-shrink-0 h-9 px-3 flex items-center gap-1.5 border-none cursor-pointer rounded-lg text-sm font-medium"
+                className="bg-black text-white flex-shrink-0 h-6 px-2 mr-1 md:mr-0 md:h-9 md:px-3 flex items-center gap-1.5 border-none cursor-pointer rounded-lg text-sm font-medium"
                 onClick={goToNext}
               >
                 {/* Always show the star icon */}
@@ -168,15 +169,19 @@ export default function CustomBoardFlow() {
             <div className="max-w-[40rem] text-center mb-8 sm:mb-4">
               <img src="/image4.png" alt="games" className="max-w-full" />
             </div>
-            {/* Input Field */}
-            <div className="flex items-center gap-2.5 max-w-[40rem] bg-white rounded-lg border border-gray-300 p-2 w-4/5 mx-auto mb-4">
-              <span className="w-10 h-10 sm:w-8 sm:h-8">
-                <img src="/input1.png" alt="ai" className="w-full h-full" />
+            {/* Input Field - Updated to match first slide */}
+            <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-300 md:p-2 p-0 w-4/5 max-w-[40rem] mx-auto mb-4">
+              <span className="w-8 h-8 flex-shrink-0">
+                <img
+                  src="/input1.png"
+                  alt="ai"
+                  className="w-full h-full object-contain"
+                />
               </span>
               <input
                 type="text"
                 placeholder="Section Name"
-                className="flex-1 border-none outline-none text-base sm:text-sm p-0 bg-transparent"
+                className="flex-1 border-none outline-none text-sm p-0 bg-transparent"
               />
             </div>
 
@@ -232,9 +237,9 @@ export default function CustomBoardFlow() {
                         <img
                           src="/2image+.png"
                           alt="upload icon"
-                          className="w-8 h-8 md:w-12 md:h-12 opacity-70"
+                          className="w-12 h-12 md:w-20 md:h-20 opacity-70"
                         />
-                        <span className="text-xs md:text-sm">
+                        <span className="text-xs md:text-md">
                           Upload your photo
                         </span>
                       </div>
@@ -309,33 +314,53 @@ export default function CustomBoardFlow() {
               <span className="text-sm font-medium">Opaque Background</span>
             </div>
 
-            {/* Upload Area */}
-            <div className="w-full border border-dashed border-gray-300 rounded-lg mb-6 sm:mb-4 p-4 sm:p-3 flex flex-col items-center justify-center">
-              <svg
-                className="w-8 h-8 sm:w-6 sm:h-6 text-gray-400 mb-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                />
-              </svg>
-              <span className="text-sm sm:text-xs text-gray-500">
-                Browse Files to upload
-              </span>
-            </div>
+            {/* Upload Area - Modified to be clickable */}
+            <label className="w-full cursor-pointer">
+              <div className="w-full border border-dashed border-gray-300 rounded-lg mb-6 sm:mb-4 p-4 sm:p-3 flex flex-col items-center justify-center hover:bg-gray-50 transition-colors">
+                <svg
+                  className="w-8 h-8 sm:w-6 sm:h-6 text-gray-400 mb-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                  />
+                </svg>
+                <span className="text-sm sm:text-xs text-gray-500">
+                  Browse Files to upload
+                </span>
+              </div>
+              <input
+                type="file"
+                className="hidden"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) {
+                    // Handle the file upload here
+                    console.log('Selected file:', file);
+                    // You can add your file handling logic here
+                    // For example, creating a preview URL:
+                    const previewUrl = URL.createObjectURL(file);
+                    // You might want to update your state with the new image
+                    // setBackgroundImage(previewUrl);
+                  }
+                }}
+              />
+            </label>
 
-            {/* Opacity Slider - more compact for mobile */}
+            {/* Opacity Slider - with only one circle */}
             <div className="w-full bg-gray-100 p-2 md:p-3 rounded-lg mb-4 md:mb-8">
               <div className="flex items-center justify-between mb-1 md:mb-2">
                 <span className="text-xs md:text-sm font-medium">Opacity</span>
                 <span className="text-xs md:text-sm">{opacity}%</span>
               </div>
-              <div className="relative w-full">
+              <div className="relative w-full h-2">
+                {/* Progress bar */}
                 <div
                   className="absolute top-1/2 left-0 -translate-y-1/2 h-1.5 md:h-2 bg-blue-500 rounded-l-lg"
                   style={{ width: `${opacity}%` }}
@@ -344,14 +369,27 @@ export default function CustomBoardFlow() {
                   className="absolute top-1/2 right-0 -translate-y-1/2 h-1.5 md:h-2 bg-gray-200 rounded-r-lg"
                   style={{ width: `${100 - opacity}%` }}
                 ></div>
+                
+                {/* Range input with hidden thumb */}
                 <input
                   type="range"
                   min="0"
                   max="100"
                   value={opacity}
                   onChange={(e) => setOpacity(Number(e.target.value))}
-                  className="relative w-full h-1.5 md:h-2 bg-transparent appearance-none z-10 cursor-pointer"
-                  style={{ WebkitAppearance: "none" }}
+                  className="absolute top-1/2 -translate-y-1/2 w-full appearance-none bg-transparent cursor-pointer z-10"
+                  style={{
+                    height: '2px',
+                    WebkitAppearance: 'none',
+                  }}
+                />
+                
+                {/* White circle handle */}
+                <div 
+                  className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full border-2 border-blue-500 shadow-sm pointer-events-none"
+                  style={{ 
+                    left: `calc(${opacity}% - 8px)`,
+                  }}
                 />
               </div>
             </div>
@@ -378,7 +416,7 @@ export default function CustomBoardFlow() {
 
         {/* Upload Destination Info */}
         <SwiperSlide>
-          <div className="flex flex-col items-center max-w-[40rem] mx-auto mt-20">
+          <div className="flex flex-col items-center max-w-[40rem] mx-auto mt-20 px-4">
             <h2 className="text-xl md:text-3xl font-bold text-center mb-8">
               Upload Destination Info
             </h2>
@@ -388,8 +426,9 @@ export default function CustomBoardFlow() {
               <img src="/image4.png" alt="Game Board" className="w-full" />
             </div>
 
-            {/* Input Fields */}
+            {/* Input Fields - Updated for consistent sizing */}
             <div className="w-full grid grid-cols-2 gap-4 mb-8">
+              {/* Text Input */}
               <div className="flex flex-col">
                 <label className="text-sm text-gray-700 mb-1">
                   Destination name
@@ -397,19 +436,20 @@ export default function CustomBoardFlow() {
                 <input
                   type="text"
                   placeholder="name your Destination..."
-                  className="p-3.5 border border-gray-300 rounded-md"
+                  className="h-[42px] px-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500"
                 />
               </div>
 
+              {/* File Upload Input */}
               <div className="flex flex-col">
-                <label className="text-sm text-gray-700 mb-1">
+                <label className="md:text-sm text-xs text-gray-700 mb-2 md:mb-1">
                   Upload Destination photo
                 </label>
                 <label className="cursor-pointer">
-                  <div className="p-3.5 border border-dashed border-gray-300 rounded-md flex items-center justify-center bg-white h-[42px]">
+                  <div className="h-[42px] px-3 border border-dashed border-gray-300 rounded-md flex items-center justify-center bg-white hover:bg-gray-50 transition-colors">
                     <div className="flex items-center gap-2 text-gray-400">
                       <svg
-                        className="w-6 h-6"
+                        className="w-5 h-5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -488,8 +528,8 @@ export default function CustomBoardFlow() {
                 className="bg-black text-white px-5 py-2.5 flex items-center gap-1 border-none cursor-pointer rounded-lg ml-auto"
               >
                 Checkout
-                <MdArrowForwardIos className="text-sm ml-1" />
-              </button>
+                <MdOutlineShoppingCartCheckout className="text-sm ml-1" />
+                </button>
             </div>
           </div>
         </SwiperSlide>
@@ -541,6 +581,45 @@ export default function CustomBoardFlow() {
           </div>
         </SwiperSlide>
       </Swiper>
+
+      {/* Add this CSS to your global styles */}
+      <style jsx global>{`
+        input[type="range"] {
+          -webkit-appearance: none;
+          appearance: none;
+          background: transparent;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 16px;
+          height: 16px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+          width: 16px;
+          height: 16px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+        }
+
+        input[type="range"]:focus {
+          outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+          background: transparent;
+        }
+
+        input[type="range"]::-moz-range-track {
+          background: transparent;
+        }
+      `}</style>
     </div>
   );
 }
