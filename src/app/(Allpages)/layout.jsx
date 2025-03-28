@@ -5,7 +5,7 @@ export const metadata = {
   title: "BARDMOCK",
   description:
     "Create your own custom game board!,Pick Spinner / Playing Cards ",
-  icons: { icon: "/2.png" },
+  icons: { icon: "/2.svg" },
 };
 
 export default function RootLayout({ children }) {

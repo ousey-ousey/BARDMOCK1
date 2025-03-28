@@ -30,11 +30,11 @@ export default function Navbar() {
         <span className="flex items-center">
           B
           <Image
-            src="/2.png"
+            src="/2.svg"
             alt="nerd"
-            width={18}
-            height={18}
-            className="mx-1"
+            width={16}
+            height={16}
+            className="mx-[-.08rem]"
           />
           ARDMOCK
         </span>

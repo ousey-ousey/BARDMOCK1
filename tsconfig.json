@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/(Allpages)/(pages1)/ui/gameflow.jsx"  ],
+, "src/app/(Allpages)/(pages1)/(home)/gameflow.jsx"  ],
   "exclude": [
     "node_modules"
   ]

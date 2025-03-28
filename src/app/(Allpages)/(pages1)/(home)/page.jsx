@@ -1,5 +1,5 @@
 import React from "react";
-import CustomBoardFlow from "../ui/gameflow";
+import CustomBoardFlow from "./gameflow";
 
 export default function Page() {
   return (
