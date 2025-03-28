@@ -46,7 +46,7 @@ export default function Services() {
   }
 
   return (
-    <section className="py-16 pt-[10rem] bg-gray-50">
+    <section className="py-16 pt-[13rem] bg-gray-50">
       <h2 className="text-2xl md:text-[3rem] font-bold mb-12 flex items-center justify-center gap-3">
         <span className="w-12 h-1 bg-black" />
         Our Service
