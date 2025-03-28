@@ -32,9 +32,9 @@ export default function Navbar() {
           <Image
             src="/2.svg"
             alt="nerd"
-            width={16}
-            height={16}
-            className="mx-[-.08rem]"
+            width={17}
+            height={17}
+            className="mx-[.08rem] mt-1"
           />
           ARDMOCK
         </span>
