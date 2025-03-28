@@ -1,11 +1,9 @@
 import React from "react";
-import Signin from "./Signin";
+import Signin from "./signin";
 function Page() {
-  return (
-    <div className="overflow-hidden">
-      <Signin />
-    </div>
-  );
+  return <div>
+    <Signin />
+  </div>;
 }
 
 export default Page;
