@@ -114,6 +114,7 @@ export default function CustomBoardFlow() {
         slidesPerView={1}
         allowTouchMove={false}
         className="w-full pt-20 md:pt-52"
+        style={{paddingTop:"10rem"}}
       >
         <SwiperSlide>
           <div className="max-w-[40rem] mx-auto px-4 mt-20">
